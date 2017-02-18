@@ -17,6 +17,8 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
+        __block int unitPrice = 20;
+        
         // 1. define block var
         int (^calculateTotalPrice) (int) = ^(int count) {
             int unitPrice = 10;
