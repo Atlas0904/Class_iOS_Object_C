@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Person.h"
 
 //int calculateTotalPrice(int count) {
 //    int unitPrice = 10;
@@ -39,7 +40,14 @@ int main(int argc, const char * argv[]) {
             int unitPrice = 10;
             return unitPrice * count;
         });
-q
+
+        Person* p = [Person new];
+        p.firstname = @"Atlas";
+        [p registerSingingEvent:^(NSString *song) {
+            NSLog(@"%@ has sung this song %@", p.firstname, song);  // Callback function
+        }];
+        [p sing:@"Happy song"];
+
     }
     return 0;
 }
