@@ -13,6 +13,11 @@
 //    return unitPrice * count;
 //}
 
+typedef int (^calculateTotalPriceBlock) (int);
+void printTotalPrice (calculateTotalPriceBlock b) {
+    int totalPrice = b(6);
+    NSLog(@"Total price: %d", totalPrice);
+}
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -30,6 +35,11 @@ int main(int argc, const char * argv[]) {
         NSLog(@"Total price: %d", totalPrice);
         NSLog(@"Total price: %i", totalPrice);
         
+        printTotalPrice(^(int count) {
+            int unitPrice = 10;
+            return unitPrice * count;
+        });
+q
     }
     return 0;
 }
